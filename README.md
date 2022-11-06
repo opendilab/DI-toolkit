@@ -1,13 +1,28 @@
 # DI-toolkit
 
 
-[![pipeline status](https://gitlab.bj.sensetime.com/open-XLab/cell/di-toolkit/badges/main/pipeline.svg)](https://gitlab.bj.sensetime.com/open-XLab/cell/di-toolkit/-/commits/main)
-[![coverage report](https://gitlab.bj.sensetime.com/open-XLab/cell/di-toolkit/badges/main/coverage.svg)](https://gitlab.bj.sensetime.com/open-XLab/cell/di-toolkit/-/commits/main)
+[![PyPI](https://img.shields.io/pypi/v/ditk)](https://pypi.org/project/ditk/)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ditk)
+![Loc](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/HansBug/82e5c38227081da9d25e729e5bd3b5b8/raw/loc.json)
+![Comments](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/HansBug/82e5c38227081da9d25e729e5bd3b5b8/raw/comments.json)
+
+[![Docs Deploy](https://github.com/opendilab/DI-toolkit/workflows/Docs%20Deploy/badge.svg)](https://github.com/opendilab/DI-toolkit/actions?query=workflow%3A%22Docs+Deploy%22)
+[![Code Test](https://github.com/opendilab/DI-toolkit/workflows/Code%20Test/badge.svg)](https://github.com/opendilab/DI-toolkit/actions?query=workflow%3A%22Code+Test%22)
+[![Badge Creation](https://github.com/opendilab/DI-toolkit/workflows/Badge%20Creation/badge.svg)](https://github.com/opendilab/DI-toolkit/actions?query=workflow%3A%22Badge+Creation%22)
+[![Package Release](https://github.com/opendilab/DI-toolkit/workflows/Package%20Release/badge.svg)](https://github.com/opendilab/DI-toolkit/actions?query=workflow%3A%22Package+Release%22)
+[![codecov](https://codecov.io/gh/opendilab/DI-toolkit/branch/main/graph/badge.svg?token=XJVDP4EFAT)](https://codecov.io/gh/opendilab/DI-toolkit)
+
+[![GitHub stars](https://img.shields.io/github/stars/opendilab/DI-toolkit)](https://github.com/opendilab/DI-toolkit/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/opendilab/DI-toolkit)](https://github.com/opendilab/DI-toolkit/network)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/opendilab/DI-toolkit)
+[![GitHub issues](https://img.shields.io/github/issues/opendilab/DI-toolkit)](https://github.com/opendilab/DI-toolkit/issues)
+[![GitHub pulls](https://img.shields.io/github/issues-pr/opendilab/DI-toolkit)](https://github.com/opendilab/DI-toolkit/pulls)
+[![Contributors](https://img.shields.io/github/contributors/opendilab/DI-toolkit)](https://github.com/opendilab/DI-toolkit/graphs/contributors)
+[![GitHub license](https://img.shields.io/github/license/opendilab/DI-toolkit)](https://github.com/opendilab/DI-toolkit/blob/master/LICENSE)
+
 
 A simple toolkit packages:
   - logger
-  - hpo: automatic hyper-parameter tuning
-  - scheduler: automatic task resource scheduler
 
 
 ## Installation
