@@ -25,9 +25,7 @@ def with_root_logger(handlers=None) -> ContextManager[logging.Logger]:
 
 
 def init_handlers(handlers=None):
-
     def _decorator(func):
-
         @wraps(func)
         def _new_func(*args, **kwargs):
             with with_root_logger(handlers):
@@ -40,3 +38,14 @@ def init_handlers(handlers=None):
 
 def no_handlers():
     return init_handlers([logging.NullHandler()])
+
+
+@contextmanager
+def close_all_handlers():
+    root = logging.getLogger()
+
+    try:
+        yield
+    finally:
+        for handler in root.handlers:
+            handler.close()
