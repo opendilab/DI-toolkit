@@ -24,7 +24,6 @@ configuration file's structure and their versions.
     :caption: API Documentation
 
     api_doc/config/index
-    api_doc/hpo/index
     api_doc/logging/index
 
 .. toctree::
