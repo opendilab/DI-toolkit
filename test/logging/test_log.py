@@ -159,7 +159,7 @@ class TestLoggingLog:
     def test_with_files(self):
         try_init_root(logging.DEBUG)
         with isolated_directory():
-            with close_all_handlers(), capture_output() as output:
+            with close_all_handlers('with_files'), capture_output() as output:
                 logger = getLogger('with_files', with_files=['log_file_1.txt', 'log_file_2.txt'])
                 assert logger.name == 'with_files'
 
@@ -212,7 +212,7 @@ class TestLoggingLog:
     def test_new_files(self):
         try_init_root(logging.DEBUG)
         with isolated_directory():
-            with close_all_handlers(), capture_output() as output:
+            with close_all_handlers('new_files'), capture_output() as output:
                 _ = getLogger('new_files', with_files=['log_file_1.txt', 'log_file_2.txt'])
                 logger = getLogger('new_files', with_files=['log_file_1.txt', 'log_file_3.txt'])
                 assert logger.name == 'new_files'

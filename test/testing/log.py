@@ -1,7 +1,7 @@
 import logging
 from contextlib import contextmanager
 from functools import wraps
-from typing import ContextManager
+from typing import ContextManager, Optional
 
 
 @contextmanager
@@ -41,11 +41,10 @@ def no_handlers():
 
 
 @contextmanager
-def close_all_handlers():
-    root = logging.getLogger()
-
+def close_all_handlers(name: Optional[str] = None):
     try:
         yield
     finally:
-        for handler in root.handlers:
+        logger = logging.getLogger(name)
+        for handler in logger.handlers:
             handler.close()
