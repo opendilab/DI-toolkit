@@ -3,16 +3,15 @@ import os
 from unittest import mock
 
 import pytest
-from hbutils.testing import capture_output
+from hbutils.testing import capture_output, isolated_logger
 
 import ditk.logging
-from ..testing import init_handlers
 
 
 @pytest.mark.unittest
 class TestLoggingFunc:
 
-    @init_handlers([])
+    @isolated_logger(handlers=[])
     def test_loggings(self):
         with capture_output() as o:
             ditk.logging.debug('This is debug.')

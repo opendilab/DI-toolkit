@@ -5,17 +5,17 @@ import sys
 from unittest import mock
 
 import pytest
-from hbutils.testing import capture_output, isolated_directory
+from hbutils.testing import capture_output, isolated_directory, isolated_logger
 from rich.logging import RichHandler
 
 from ditk.logging import getLogger, try_init_root
-from ..testing import init_handlers, close_all_handlers
+from ..testing import close_all_handlers
 
 
 @pytest.mark.unittest
 class TestLoggingLog:
 
-    @init_handlers([])
+    @isolated_logger(handlers=[])
     def test_simple_rich(self):
         try_init_root(logging.DEBUG)
         with capture_output() as output:
@@ -34,7 +34,7 @@ class TestLoggingLog:
         assert 'ERROR    This is error.' in stderr
         assert 'CRITICAL This is critical.' in stderr
 
-    @init_handlers([])
+    @isolated_logger(handlers=[])
     def test_simple_rich_with_style(self):
         try_init_root(logging.DEBUG)
         with capture_output() as output:
@@ -53,7 +53,7 @@ class TestLoggingLog:
         assert 'ERROR    This is error.' in stderr
         assert 'CRITICAL This is critical.' in stderr
 
-    @init_handlers([])
+    @isolated_logger(handlers=[])
     def test_simple_rich_with_style_disable_rich(self):
         try_init_root(logging.DEBUG)
         with capture_output() as output:
@@ -73,7 +73,7 @@ class TestLoggingLog:
         assert '[ERROR] This is error.' in stderr
         assert '[CRITICAL] This is critical.' in stderr
 
-    @init_handlers([])
+    @isolated_logger(handlers=[])
     def test_stream(self):
         try_init_root(logging.DEBUG)
         with capture_output() as output:
@@ -93,7 +93,7 @@ class TestLoggingLog:
         assert 'ERROR    This is error.' in stderr
         assert 'CRITICAL This is critical.' in stderr
 
-    @init_handlers([])
+    @isolated_logger(handlers=[])
     def test_with_basic_stream(self):
         with capture_output() as output:
             root = logging.getLogger()
@@ -122,7 +122,7 @@ class TestLoggingLog:
         assert '[THIS IS UNITTEST][ERROR] This is error.' in stdout
         assert '[THIS IS UNITTEST][CRITICAL] This is critical.' in stdout
 
-    @init_handlers([])
+    @isolated_logger(handlers=[])
     def test_with_basic_rich(self):
         try_init_root(logging.DEBUG)
         with capture_output() as output:
@@ -155,10 +155,11 @@ class TestLoggingLog:
         assert 'ERROR    This is error.' in stderr
         assert 'CRITICAL This is critical.' in stderr
 
-    @init_handlers([])
+    @isolated_logger(handlers=[])
     def test_with_files(self):
         try_init_root(logging.DEBUG)
         with isolated_directory():
+            # function close_all_handlers should be removed soon.
             with close_all_handlers('with_files'), capture_output() as output:
                 logger = getLogger('with_files', with_files=['log_file_1.txt', 'log_file_2.txt'])
                 assert logger.name == 'with_files'
@@ -187,7 +188,7 @@ class TestLoggingLog:
             assert '[ERROR] This is error.' in log_file_2
             assert '[CRITICAL] This is critical.' in log_file_2
 
-    @init_handlers([])
+    @isolated_logger(handlers=[])
     def test_new_level(self):
         try_init_root(logging.DEBUG)
         with capture_output() as output:
@@ -208,10 +209,11 @@ class TestLoggingLog:
         assert 'ERROR    This is error.' in stderr
         assert 'CRITICAL This is critical.' in stderr
 
-    @init_handlers([])
+    @isolated_logger(handlers=[])
     def test_new_files(self):
         try_init_root(logging.DEBUG)
         with isolated_directory():
+            # function close_all_handlers should be removed soon.
             with close_all_handlers('new_files'), capture_output() as output:
                 _ = getLogger('new_files', with_files=['log_file_1.txt', 'log_file_2.txt'])
                 logger = getLogger('new_files', with_files=['log_file_1.txt', 'log_file_3.txt'])

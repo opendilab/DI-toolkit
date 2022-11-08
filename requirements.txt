@@ -1,2 +1,2 @@
-hbutils>=0.6.11,<1
+hbutils>=0.7.6
 rich>=12.2.0
