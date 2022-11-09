@@ -1,8 +1,8 @@
 # DI-toolkit
 
 
-[![PyPI](https://img.shields.io/pypi/v/ditk)](https://pypi.org/project/ditk/)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ditk)
+[![PyPI](https://img.shields.io/pypi/v/DI-toolkit)](https://pypi.org/project/DI-toolkit/)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/DI-toolkit)
 ![Loc](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/HansBug/82e5c38227081da9d25e729e5bd3b5b8/raw/loc.json)
 ![Comments](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/HansBug/82e5c38227081da9d25e729e5bd3b5b8/raw/comments.json)
 
