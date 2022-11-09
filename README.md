@@ -40,7 +40,7 @@ cd di-toolkit
 pip install . --user
 ```
 
-## Quick Start for HPO
+## Quick Start
 
 Here is a simple example:
 
