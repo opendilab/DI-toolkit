@@ -21,8 +21,8 @@
 [![GitHub license](https://img.shields.io/github/license/opendilab/DI-toolkit)](https://github.com/opendilab/DI-toolkit/blob/master/LICENSE)
 
 
-A simple toolkit packages:
-  - logger
+A simple toolkit package for opendilab, including the following utilities:
+  - `ditk.logging`, a easy-to-use logger system
 
 
 ## Installation
@@ -42,7 +42,9 @@ pip install . --user
 
 ## Quick Start
 
-Here is a simple example:
+### Example of ditk.logging
+
+Here is an example of logging.
 
 ```python
 from ditk import logging
@@ -59,6 +61,8 @@ if __name__ == '__main__':
         logging.exception(err)
 
 ```
+
+`ditk.logging`has almost the same interface as native `logging` module. You can directly replace `import logging` in the code with `from ditk import logging`.
 
 ## Contributing
 
