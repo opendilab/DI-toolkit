@@ -10,3 +10,4 @@ Python Annonated Documation Generation Script
 # Related Library
 - [KaTex](https://github.com/KaTeX/KaTeX)
 - [codemirror5](https://github.com/codemirror/codemirror5)
+- [yattag](https://www.yattag.org/)
