@@ -3,7 +3,7 @@ Python Annonated Documation Generation Script
 
 # Demo
 <div align="center">
-    <a href="https://github.com/opendilab/DI-toolkit"><img width="800px" height="auto" src="./demo.ong"></a>
+    <a href="https://github.com/opendilab/DI-toolkit"><img width="800px" height="auto" src="./demo.png"></a>
 </div>
 
 # Usage

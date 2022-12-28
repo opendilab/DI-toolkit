@@ -38,7 +38,7 @@ class StateCode(IntEnum):
     BLOCK_COMMENT = 2
 
 
-def main(src_py_path, dst_html_path):
+def generate_annonated_doc(src_py_path, dst_html_path):
     with open(src_py_path, 'r') as f:
         src = f.read()
     line_data = src.split('\n')
@@ -130,7 +130,7 @@ def main(src_py_path, dst_html_path):
             for i in range(len(line_data)):
                 print(i, line_data[i])
                 no_space_data = line_data[i].strip()
-                if no_space_data.startswith('if __name__ == "__main__":'):
+                if no_space_data.startswith('if __name__ == "__generate_annonated_doc__":'):
                     break
                 if state == StateCode.NORMAL:
                     if no_space_data.startswith('"""'):  # block comment
@@ -183,5 +183,5 @@ def main(src_py_path, dst_html_path):
         f.write('<!DOCTYPE html>\n' + result)
 
 
-if __name__ == "__main__":
-    main('ppo.py', 'ppo.html')
+if __name__ == "__generate_annonated_doc__":
+    generate_annonated_doc('ppo.py', 'ppo.html')
