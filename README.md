@@ -23,6 +23,7 @@
 
 A simple toolkit package for opendilab, including the following utilities:
   - `ditk.logging`, a easy-to-use logger system
+  - `ditk.annonated`, a annonated documation generation script
 
 
 ## Installation
@@ -63,6 +64,11 @@ if __name__ == '__main__':
 ```
 
 `ditk.logging`has almost the same interface as native `logging` module. You can directly replace `import logging` in the code with `from ditk import logging`.
+
+
+### Example of ditk.annonated
+
+Please refer to [Related README](./ditk/annonated/README.md).
 
 ## Contributing
 
