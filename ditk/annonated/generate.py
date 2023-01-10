@@ -185,3 +185,5 @@ def generate_annonated_doc(src_py_path, dst_html_path):
 
 if __name__ == "__generate_annonated_doc__":
     generate_annonated_doc('ppo.py', 'ppo.html')
+    generate_annonated_doc('clip_grad_norm.py', 'clip_grad_norm.html')
+    
