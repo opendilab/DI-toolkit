@@ -1,6 +1,7 @@
 name: Code Test
 
-on: [push, pull_request]
+on:
+  push:
 
 jobs:
   unittest:
@@ -10,14 +11,15 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - 'ubuntu-18.04'
-          - 'windows-2019'
-          - 'macos-10.15'
+          - 'ubuntu-latest'
+          - 'windows-latest'
+          - 'macos-latest'
         python-version:
           - '3.7'
           - '3.8'
           - '3.9'
           - '3.10'
+          - '3.11'
 
     steps:
       - name: Get system version for Linux
@@ -61,7 +63,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y tree cloc wget curl make zip
-          sudo apt-get install -y libxml2-dev libxslt-dev python-dev  # need by pypy3
       - name: Set up system dependences on Windows
         if: ${{ env.OS_NAME == 'Windows' }}
         shell: bash

@@ -1210,3 +1210,4 @@ fabric.properties
 !/docs/source/_static/**/*
 /cartpole_dqn_*
 !/ditk/doc/**/*.png
+!/test/testfile/**/*
