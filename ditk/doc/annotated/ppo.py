@@ -1,8 +1,9 @@
 """
-PyTorch implementation of Proximal Policy Optimization (PPO)
+PyTorch's implementation of Proximal Policy Optimization (PPO)
 """
-from typing import Optional, Tuple
 from collections import namedtuple
+from typing import Optional, Tuple
+
 import torch
 
 ppo_policy_data = namedtuple('ppo_policy_data', ['logit_new', 'logit_old', 'action', 'adv', 'weight'])

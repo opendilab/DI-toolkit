@@ -68,7 +68,7 @@ if __name__ == '__main__':
 
 ### Example of ditk.annonated
 
-Please refer to [Related README](./ditk/annonated/README.md).
+Please refer to [Related README](ditk/doc/annonated/README.md).
 
 ## Contributing
 

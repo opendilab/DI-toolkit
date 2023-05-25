@@ -1,3 +1,4 @@
 hbutils>=0.7.6
 rich>=12.2.0
 yattag>=1.14.0
+click>=7.0.0
