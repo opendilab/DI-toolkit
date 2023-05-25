@@ -6,13 +6,23 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 from hbutils.string import plural_word
+from matplotlib.ticker import FuncFormatter
 from scipy import interpolate
 from sklearn.cluster import KMeans
 
 from ..log import tb_extract_recursive_logs
 
 
-def _tb_rplot_single_group(dfs, xname, yname, label, ax, n_samples: Optional[int] = None,
+def _tb_x_format(x, _):
+    if x < 1e3:
+        return f'{x}'
+    elif x < 1e6:
+        return f'{x / 1e3:.2f}k'
+    else:
+        return f'{x / 1e6:.2f}M'
+
+
+def _tb_rplot_single_group(ax, dfs, xname, yname, label, n_samples: Optional[int] = None,
                            lower_bound: Optional[float] = None, upper_bound: Optional[float] = None):
     datas = []
     for d in dfs:
@@ -67,10 +77,14 @@ def tb_create_range_plots(logdir, xname, yname,
 
     for group_name, dfs in log_groups.items():
         _tb_rplot_single_group(
-            dfs, xname, yname,
+            ax, dfs, xname, yname,
             label=label_map.get(group_name, group_name),
             n_samples=n_samples,
             lower_bound=lower_bound,
             upper_bound=upper_bound,
-            ax=ax,
         )
+
+    ax.xaxis.set_major_formatter(FuncFormatter(_tb_x_format))
+    ax.set_title(f'{xname!r} - {yname!r} plot')
+    ax.set_xlabel(xname)
+    ax.set_ylabel(yname)
