@@ -1,16 +1,23 @@
 import os
 import warnings
+from functools import lru_cache
 from typing import Optional, Mapping
 
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 from hbutils.string import plural_word
+from hbutils.testing import vpip
 from matplotlib.ticker import FuncFormatter
 from scipy import interpolate
 from sklearn.cluster import KMeans
 
 from ..log import tb_extract_recursive_logs
+
+
+@lru_cache()
+def _kmeans_support_n_init_auto():
+    return vpip('scikit-learn') >= '1.2.0'
 
 
 def _tb_x_format(x, _):
@@ -44,7 +51,7 @@ def _tb_rplot_single_group(ax, dfs, xname, yname, label, n_samples: Optional[int
                       f'n_samples ignored due to the unavailableness of {plural_word(n_samples, "sample")}.')
         n_samples = all_xs.shape[0]
 
-    clu_algo = KMeans(n_samples, n_init='auto')
+    clu_algo = KMeans(n_samples, n_init='auto' if _kmeans_support_n_init_auto() else 10)
     clu_algo.fit(all_xs[..., None])
     px = np.sort(clu_algo.cluster_centers_.squeeze(-1))
 

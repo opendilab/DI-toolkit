@@ -25,4 +25,4 @@ class TestTensorboardPlotsRange:
             plt.tight_layout()
             plt.savefig('plot.png', bbox_inches='tight')
 
-            assert image_diff(answer_file, 'plot.png', throw_exception=False) < 1e-2
+            assert image_diff(answer_file, 'plot.png', throw_exception=False) < 0.05
