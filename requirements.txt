@@ -1,3 +1,6 @@
-hbutils>=0.7.6
+hbutils>=0.9.1
 rich>=12.2.0
 yattag>=1.14.0
+pandas
+tensorboard
+tqdm
