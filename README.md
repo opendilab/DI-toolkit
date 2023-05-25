@@ -1,6 +1,5 @@
 # DI-toolkit
 
-
 [![PyPI](https://img.shields.io/pypi/v/DI-toolkit)](https://pypi.org/project/DI-toolkit/)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/DI-toolkit)
 ![Loc](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/HansBug/82e5c38227081da9d25e729e5bd3b5b8/raw/loc.json)
@@ -20,11 +19,10 @@
 [![Contributors](https://img.shields.io/github/contributors/opendilab/DI-toolkit)](https://github.com/opendilab/DI-toolkit/graphs/contributors)
 [![GitHub license](https://img.shields.io/github/license/opendilab/DI-toolkit)](https://github.com/opendilab/DI-toolkit/blob/master/LICENSE)
 
-
 A simple toolkit package for opendilab, including the following utilities:
-  - `ditk.logging`, a easy-to-use logger system
-  - `ditk.annonated`, a annonated documation generation script
 
+- `ditk.logging`, a easy-to-use logger system
+- `ditk.annonated`, a annonated documation generation script
 
 ## Installation
 
@@ -35,6 +33,7 @@ pip install DI-toolkit
 ```
 
 Or install from latest source code as follows:
+
 ```shell
 git clone https://gitlab.bj.sensetime.com/open-XLab/cell/di-toolkit.git
 cd di-toolkit
@@ -63,17 +62,75 @@ if __name__ == '__main__':
 
 ```
 
-`ditk.logging`has almost the same interface as native `logging` module. You can directly replace `import logging` in the code with `from ditk import logging`.
+`ditk.logging`has almost the same interface as native `logging` module. You can directly replace `import logging` in the
+code with `from ditk import logging`.
 
+### ditk.annonated
 
-### Example of ditk.annonated
+Python annotated documentation generation script like the following
 
-Please refer to [Related README](ditk/doc/annonated/README.md).
+![](./assets/ditk_doc_annotated_demo.png)
+
+#### Usage
+
+```shell
+python -m ditk.doc.annotated create -i ditk/doc/annotated/ppo.py -o my_doc/index.html -L zh
+```
+
+You will get
+
+```text
+my_doc
+├── assets
+│   ├── pylit.css
+│   └── solarized.css
+└── index.html
+```
+
+#### Help Information
+
+* `python -m ditk.doc.annotated --help`
+
+```text
+Usage: python -m ditk.doc.annotated [OPTIONS] COMMAND [ARGS]...
+
+  Utils for creating annotation documentation.
+
+Options:
+  -v, --version  Show version information.
+  -h, --help     Show this message and exit.
+
+Commands:
+  create  Utils for creating annotation documentation from local code.
+```
+
+* `python -m ditk.doc.annotated create --help`
+
+```text
+Usage: python -m ditk.doc.annotated create [OPTIONS]
+
+  Utils for creating annotation documentation from local code.
+
+Options:
+  -i, --input_file FILE       Input source code.  [required]
+  -o, --output_file FILE      Output annotated documentation code.  [required]
+  -A, --assets_dir DIRECTORY  Directory for assets file of this documentation.
+  -L, --language [zh|en]      Language for documentation.  [default: en]
+  -T, --title TEXT            Title of the documentation.  [default: <Untitled
+                              Documentation>]
+  -h, --help                  Show this message and exit.
+```
+
+#### Related Library
+
+- [KaTex](https://github.com/KaTeX/KaTeX)
+- [codemirror5](https://github.com/codemirror/codemirror5)
+- [yattag](https://www.yattag.org/)
 
 ## Contributing
 
-We appreciate all contributions to improve `DI-toolkit`, both logic and system designs. Please refer to CONTRIBUTING.md for more guides.
-
+We appreciate all contributions to improve `DI-toolkit`, both logic and system designs. Please refer to CONTRIBUTING.md
+for more guides.
 
 ## License
 

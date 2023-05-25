@@ -163,7 +163,7 @@ def generate_annotated_doc(src_py_path, dst_html_path, title,
             for i in range(len(line_data)):
                 logging.info(f'{i:3d} {line_data[i]}')
                 no_space_data = line_data[i].strip()
-                if no_space_data.startswith('if __name__ == "__generate_annotated_doc__":'):
+                if no_space_data.startswith('if __name__ == "__main__":'):
                     break
                 if state == StateCode.NORMAL:
                     if no_space_data.startswith('"""'):  # block comment
@@ -224,5 +224,5 @@ def generate_annotated_doc(src_py_path, dst_html_path, title,
     logging.info(f'[green]Log to [u]{dst_html_path}[/u] success![/green]')
 
 
-if __name__ == "__generate_annotated_doc__":
-    generate_annotated_doc('ppo.py', 'ppo.html')
+if __name__ == "__main__":
+    generate_annotated_doc('ppo.py', 'ppo.html', 'This is the title')

@@ -1211,3 +1211,4 @@ fabric.properties
 /cartpole_dqn_*
 !/ditk/doc/**/*.png
 !/test/testfile/**/*
+!/assets/**/*
