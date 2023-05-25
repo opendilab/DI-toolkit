@@ -1,6 +1,7 @@
 name: Code Test
 
-on: [push, pull_request]
+on:
+  push:
 
 jobs:
   unittest:
@@ -10,18 +11,19 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - 'ubuntu-18.04'
+          - 'ubuntu-latest'
           - 'windows-2019'
-          - 'macos-10.15'
+          - 'macos-latest'
         python-version:
           - '3.7'
           - '3.8'
           - '3.9'
           - '3.10'
+          - '3.11'
 
     steps:
       - name: Get system version for Linux
-        if: ${{ contains(matrix.os, 'ubuntu') }}
+        if: ${{ contains(matrix.os, 'ubuntu') || contains(matrix.os, 'self-hosted') }}
         shell: bash
         run: |
           echo "OS_NAME=Linux" >> $GITHUB_ENV
