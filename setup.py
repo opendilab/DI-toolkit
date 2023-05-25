@@ -34,7 +34,7 @@ setup(
     name=meta['__TITLE__'],
     version=meta['__VERSION__'],
     packages=find_packages(include=(_package_name, "%s.*" % _package_name)),
-    package_data={package_name: ['*.yaml', '*.yml']
+    package_data={package_name: ['*.yaml', '*.yml', '*.css', '*.js']
                   for package_name in find_packages(include=('*'))},
     description=meta['__DESCRIPTION__'],
     long_description=readme,
