@@ -127,6 +127,27 @@ Options:
 - [codemirror5](https://github.com/codemirror/codemirror5)
 - [yattag](https://www.yattag.org/)
 
+### Create Multi-Seed Multi-Algorithm Benchmark Plots
+
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from ditk.tensorboard.plots import tb_create_range_plots
+
+sns.set()
+
+tb_create_range_plots(
+    'test/testfile/pong_tb',  # directory of tensorboard log
+    xname='step',
+    yname='evaluator_step/reward_mean',
+)
+
+plt.show()
+```
+
+![tb_create_range_plots](docs/source/_static/tb_create_range_plots.svg)
+
 ## Contributing
 
 We appreciate all contributions to improve `DI-toolkit`, both logic and system designs. Please refer to CONTRIBUTING.md

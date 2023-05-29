@@ -77,6 +77,19 @@ def tb_create_range_plots(logdir, xname, yname,
                           label_map: Optional[Mapping[str, str]] = None, n_samples: Optional[int] = None,
                           lower_bound: Optional[float] = 0.0, upper_bound: Optional[float] = None,
                           ax=None):
+    """
+    Overview:
+        Create Multi-Seed Multi-Algorithm Benchmark Plots with Mean and Standard Deviation.
+
+    :param logdir: Log directory of tensorboard. Nested tensorboard log directories are supported.
+    :param xname: Name of x-axis, ``step`` is recommended.
+    :param yname: Name of y-axis.
+    :param label_map: Mapping of the labels, will be used in legend.
+    :param n_samples: Samples of x-axis, default is ``None`` which means just use all the samples.
+    :param lower_bound: Lower bound of x-axis. Default is the minimum value of all the experiments' x.
+    :param upper_bound: Upper bound of y-axis. Default is the maximum value of all the experiments' x.
+    :param ax: Axes object of the matplotlib. Default is ``None`` which means use the ``plt.gca()`` as axes.
+    """
     label_map = dict(label_map or {})
     log_data = tb_extract_recursive_logs(logdir)
     log_groups = {}
