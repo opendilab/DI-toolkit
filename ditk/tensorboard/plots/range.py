@@ -39,9 +39,9 @@ def _tb_rplot_single_group(ax, dfs, xname, yname, label, n_samples: Optional[int
         datas.append((df[xname], df[yname], func))
 
     if lower_bound is None:
-        lower_bound = np.max([x.min() for x, _, _ in datas])
+        lower_bound = np.min([x.min() for x, _, _ in datas])
     if upper_bound is None:
-        upper_bound = np.min([x.max() for x, _, _ in datas])
+        upper_bound = np.max([x.max() for x, _, _ in datas])
 
     all_xs = np.concatenate([x[(x <= upper_bound) & (x >= lower_bound)] for x, _, _ in datas])
     if n_samples is None:
@@ -53,15 +53,22 @@ def _tb_rplot_single_group(ax, dfs, xname, yname, label, n_samples: Optional[int
 
     clu_algo = KMeans(n_samples, n_init='auto' if _kmeans_support_n_init_auto() else 10)
     clu_algo.fit(all_xs[..., None])
-    px = np.sort(clu_algo.cluster_centers_.squeeze(-1))
+    px = np.sort(clu_algo.cluster_centers_.squeeze(-1), kind='heapsort')
+    if not np.isclose(px[0], lower_bound):
+        px = np.concatenate([np.array([lower_bound]), px])
+    if not np.isclose(px[-1], upper_bound):
+        px = np.concatenate([px, np.array([upper_bound])])
 
     fx = []
     fy = []
-    for _, _, func in datas:
-        fx.append(px)
-        fy.append([func(x) for x in px])
-    fx = np.concatenate(fx)
-    fy = np.concatenate(fy)
+    for xvalues, _, func in datas:
+        x_min, x_max = xvalues.min(), xvalues.max()
+        for x in px:
+            if x_min <= x <= x_max:
+                fx.append(x)
+                fy.append(func(x))
+    fx = np.array(fx)
+    fy = np.array(fy)
 
     sns.lineplot(x=fx, y=fy, label=label, ax=ax)
 
