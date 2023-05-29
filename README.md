@@ -22,7 +22,9 @@
 A simple toolkit package for opendilab, including the following utilities:
 
 - `ditk.logging`, a easy-to-use logger system
-- `ditk.annonated`, a annonated documation generation script
+- `ditk.annonated`, an annotated documentation generation script
+- `ditk.tensorboard`, a utility for extract data from tensorboard log file
+    - `ditk.tensorboard.plot`, plot utilities for plotting data extracted from tensorboard log file
 
 ## Installation
 
@@ -32,7 +34,7 @@ You can simply install it with `pip` command line from the official PyPI site.
 pip install DI-toolkit
 ```
 
-Or install from latest source code as follows:
+Or installing from the latest source code as follows:
 
 ```shell
 git clone https://gitlab.bj.sensetime.com/open-XLab/cell/di-toolkit.git
