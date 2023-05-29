@@ -7,13 +7,13 @@ Overview:
 __TITLE__ = "DI-toolkit"
 
 #: Version of this project.
-__VERSION__ = "0.1.0"
+__VERSION__ = "0.2.0"
 
 #: Short description of the project, will be included in ``setup.py``.
-__DESCRIPTION__ = 'A simple tool for automatic parameter tuning.'
+__DESCRIPTION__ = 'A simple tool for opendilab.'
 
 #: Author of this project.
 __AUTHOR__ = "HansBug"
 
 #: Email of the authors'.
-__AUTHOR_EMAIL__ = "zhangshaoang@sensetime.com"
+__AUTHOR_EMAIL__ = "hansbug@buaa.edu.cn"
