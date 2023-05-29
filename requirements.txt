@@ -5,3 +5,7 @@ click>=7.0.0
 pandas
 tensorboard
 tqdm
+scipy
+scikit-learn
+seaborn
+matplotlib
