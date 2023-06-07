@@ -102,10 +102,17 @@ def tb_create_range_plots(logdir, xname, yname,
     if ax is None:
         ax = plt.gca()
 
-    for group_name, dfs in log_groups.items():
+    if label_map:
+        group_names = list(label_map.keys())
+    else:
+        group_names = list(log_groups.keys())
+
+    for group_name in group_names:
+        dfs = log_groups[group_name]
+        label = label_map.get(group_name, group_name)
         _tb_rplot_single_group(
             ax, dfs, xname, yname,
-            label=label_map.get(group_name, group_name),
+            label=label,
             n_samples=n_samples,
             lower_bound=lower_bound,
             upper_bound=upper_bound,
