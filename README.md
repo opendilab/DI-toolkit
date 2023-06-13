@@ -37,7 +37,7 @@ pip install DI-toolkit
 Or installing from the latest source code as follows:
 
 ```shell
-git clone https://gitlab.bj.sensetime.com/open-XLab/cell/di-toolkit.git
+git clone https://github.com/opendilab/DI-toolkit.git
 cd di-toolkit
 pip install . --user
 ```
