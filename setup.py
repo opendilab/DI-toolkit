@@ -43,7 +43,7 @@ setup(
     author_email=meta['__AUTHOR_EMAIL__'],
     license='Apache License, Version 2.0',
     keywords='A simple tool for automatic parameter tuning.',
-    url='https://gitlab.bj.sensetime.com/open-XLab/cell/di-toolkit',
+    url='https://github.com/opendilab/DI-toolkit',
 
     # environment
     python_requires=">=3.6",
