@@ -13,7 +13,7 @@ You can also install with the newest version through GitHub:
 
 .. code:: shell
 
-    pip install -U git+https://gitlab.bj.sensetime.com/open-XLab/cell/di-toolkit@main
+    pip install -U git+https://github.com/opendilab/DI-toolkit@main
 
 You can check your installation by the following python \
 script:
@@ -30,4 +30,4 @@ is successful.
     :linenos:
 
 DI-toolkit is still under development, you can also check out the \
-documents in stable version through `http://open-xlab.pages.gitlab.bj.sensetime.com/cell/di-toolkit/main/index.html <http://open-xlab.pages.gitlab.bj.sensetime.com/cell/di-toolkit/main/index.html>`_.
+documents in stable version through `https://opendilab.github.io/DI-toolkit/main/index.html <https://opendilab.github.io/DI-toolkit/main/index.html>`_.
