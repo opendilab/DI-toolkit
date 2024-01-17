@@ -2,6 +2,8 @@ import logging
 import os
 from logging import LogRecord
 
+import rich.errors
+
 from .base import _LogLevelType
 from .rich import _create_rich_handler
 from .stream import _create_stream_handler
@@ -43,4 +45,11 @@ class LoggingTerminalHandler(logging.Handler):
         If ``DISABLE_RICH`` environment variable is set to non-empty, this method is equal to \
         :meth:`logging.StreamHandler.emit`, otherwise equals to :meth:`rich.logging.RichHandler.emit`.
         """
-        return self._get_current_handler().emit(record)
+        try:
+            return self._get_current_handler().emit(record)
+        except rich.errors.ConsoleError:
+            if _use_rich():
+                stream_handler = _create_stream_handler(self.use_stdout, self.level)
+                return stream_handler.emit(record)
+            else:
+                raise
