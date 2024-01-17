@@ -162,6 +162,8 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">logging</span> <span class="kn">import</span> <span class="n">LogRecord</span>
 
+<span class="kn">import</span> <span class="nn">rich.errors</span>
+
 <span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">_LogLevelType</span>
 <span class="kn">from</span> <span class="nn">.rich</span> <span class="kn">import</span> <span class="n">_create_rich_handler</span>
 <span class="kn">from</span> <span class="nn">.stream</span> <span class="kn">import</span> <span class="n">_create_stream_handler</span>
@@ -203,7 +205,14 @@
 <span class="sd">        If ``DISABLE_RICH`` environment variable is set to non-empty, this method is equal to \</span>
 <span class="sd">        :meth:`logging.StreamHandler.emit`, otherwise equals to :meth:`rich.logging.RichHandler.emit`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_current_handler</span><span class="p">()</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">record</span><span class="p">)</span></div></div>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_current_handler</span><span class="p">()</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rich</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">ConsoleError</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">_use_rich</span><span class="p">():</span>
+                <span class="n">stream_handler</span> <span class="o">=</span> <span class="n">_create_stream_handler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">use_stdout</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">level</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">stream_handler</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span></div></div>
 </pre></div>
 
 
@@ -246,10 +255,9 @@
                 </dl>
                 <dl>
                     <dt>Branches</dt>
-                        <dd><a href="../../../../dev/fallback/index.html">dev/fallback</a></dd>
+                        <dd><a href="terminal.html">main</a></dd>
                         <dd><a href="../../../../dev-annonated-viz/index.html">dev-annonated-viz</a></dd>
                         <dd><a href="../../../../dev/rplot/index.html">dev/rplot</a></dd>
-                        <dd><a href="terminal.html">main</a></dd>
                 </dl>
         </div>
     </div>
