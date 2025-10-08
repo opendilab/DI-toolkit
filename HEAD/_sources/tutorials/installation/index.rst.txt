@@ -1,7 +1,7 @@
 Installation
 ===================
 
-DI-toolkit is currently hosted on PyPI. It required python >= 3.6.
+DI-toolkit is currently hosted on PyPI. It required python >= 3.8.
 
 You can simply install DI-toolkit from PyPI with the following command:
 
