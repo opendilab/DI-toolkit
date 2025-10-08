@@ -45,7 +45,8 @@ def cli():
               required=True, help='Output annotated documentation code.')
 @click.option('-A', '--assets_dir', 'assets_directory', type=click.types.Path(file_okay=False),
               default=None, help='Directory for assets file of this documentation.')
-@click.option('-L', '--language', 'language', type=click.types.Choice(list(Lang.__members__.values())),
+@click.option('-L', '--language', 'language',
+              type=click.types.Choice([item.value for item in Lang.__members__.values()]),
               default=Lang.English.value, help='Language for documentation.', show_default=True)
 @click.option('-T', '--title', type=str, default='<Untitled Documentation>',
               help='Title of the documentation.', show_default=True)

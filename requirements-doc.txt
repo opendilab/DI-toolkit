@@ -1,10 +1,11 @@
 Jinja2>=3.0.0
-sphinx>=3.2.0
+# sphinx v8 has conflict with enum_tools
+sphinx>=3.2.0,<8
 sphinx_rtd_theme>=0.4.3
-enum_tools~=0.9.0
+enum_tools>=0.9.0
 sphinx-toolbox
 plantumlcli>=0.0.2
 packaging
 sphinx-multiversion>=0.2.4
-where~=1.0.2
+where>=1.0.2
 easydict>=1.7,<2
