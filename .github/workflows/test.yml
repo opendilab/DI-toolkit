@@ -75,7 +75,7 @@ jobs:
         run: |
           brew install tree cloc wget curl make zip
       - name: Set up python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
