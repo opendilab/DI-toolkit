@@ -20,6 +20,9 @@ def test_generate():
 def test_cli():
     with isolated_directory({'ppo.py': os.path.join('ditk', 'doc', 'annotated', 'ppo.py')}):
         result = simulate_entry(cli, ['ditk.doc.annotated', 'create', '-i', 'ppo.py', '-o', 'ppo.html'])
-        assert result.exitcode == 0
+        assert result.exitcode == 0, \
+            (f'Error get exitcode {result.exitcode!r}\n'
+             f'Stdout:\n{result.stdout}\n\n'
+             f'Stderr:\n{result.stderr}')
         assert os.path.exists('ppo.html')
         assert len(glob.glob(os.path.join('assets', '*.css'))) == 2
