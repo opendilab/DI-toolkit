@@ -14,6 +14,7 @@ with open(os.path.join(here, _package_name, 'config', 'meta.py'), 'r', 'utf-8') 
 
 
 def _load_req(file: str):
+    """Load requirements from requirements file"""
     with open(file, 'r', 'utf-8') as f:
         return [line.strip() for line in f.readlines() if line.strip()]
 
@@ -30,7 +31,7 @@ with open('README.md', 'r', 'utf-8') as f:
     readme = f.read()
 
 setup(
-    # information
+    # Basic package information
     name=meta['__TITLE__'],
     version=meta['__VERSION__'],
     packages=find_packages(include=(_package_name, "%s.*" % _package_name)),
@@ -42,20 +43,67 @@ setup(
     author=meta['__AUTHOR__'],
     author_email=meta['__AUTHOR_EMAIL__'],
     license='Apache License, Version 2.0',
-    keywords='A simple tool for automatic parameter tuning.',
+    keywords='opendilab, toolkit, logging, documentation, tensorboard, machine learning, deep learning, reinforcement learning',
     url='https://github.com/opendilab/DI-toolkit',
 
-    # environment
-    python_requires=">=3.6",
+    # Environment and dependency requirements
+    python_requires=">=3.8",
     install_requires=requirements,
-    tests_require=group_requirements['test'],
+    tests_require=group_requirements.get('test', []),
     extras_require=group_requirements,
+
+    # Package classifiers for PyPI categorization
     classifiers=[
-        'Development Status :: 5 - Production/Stable', 'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache Software License', 'Programming Language :: Python',
-        'Programming Language :: Python :: 3', 'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7', 'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9', 'Programming Language :: Python :: 3.10',
-        'Programming Language :: Python :: Implementation :: PyPy'
+        # Development status - indicates the package is stable and production-ready
+        'Development Status :: 5 - Production/Stable',
+
+        # Target audience - primarily for developers and researchers
+        'Intended Audience :: Developers',
+        'Intended Audience :: Science/Research',
+        'Intended Audience :: Information Technology',
+
+        # License information - Apache 2.0 license
+        'License :: OSI Approved :: Apache Software License',
+
+        # Programming language support
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
+        'Programming Language :: Python :: Implementation :: PyPy',
+
+        # Operating system compatibility
+        'Operating System :: OS Independent',
+        'Operating System :: POSIX',
+        'Operating System :: Microsoft :: Windows',
+        'Operating System :: MacOS',
+
+        # Topic categories - what the package is used for
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: Software Development :: Documentation',
+        'Topic :: System :: Logging',
+        'Topic :: Scientific/Engineering :: Artificial Intelligence',
+        'Topic :: Scientific/Engineering :: Information Analysis',
+        'Topic :: Scientific/Engineering :: Visualization',
+        'Topic :: Utilities',
+
+        # Environment and framework compatibility
+        'Environment :: Console',
+        'Environment :: Web Environment',
+
+        # Natural language support
+        'Natural Language :: English',
+        'Natural Language :: Chinese (Simplified)',
+
+        # Framework compatibility - particularly for ML/DL frameworks
+        'Framework :: Matplotlib',
+
+        # Additional topic classifications for ML/RL
+        'Topic :: Software Development :: Libraries :: Application Frameworks',
+        'Topic :: Text Processing :: Markup :: HTML',
     ],
 )
