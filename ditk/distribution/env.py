@@ -17,7 +17,7 @@ Example::
 """
 
 
-def is_distributed():
+def is_distributed() -> bool:
     """
     Check if distributed training is available and initialized.
 
@@ -44,7 +44,7 @@ def is_distributed():
     return dist.is_available() and dist.is_initialized()
 
 
-def get_rank():
+def get_rank() -> int:
     """
     Get the global rank of the current process.
 
@@ -66,7 +66,7 @@ def get_rank():
         return 0
 
 
-def get_world_size():
+def get_world_size() -> int:
     """
     Get the total number of processes across all nodes.
 
@@ -89,7 +89,7 @@ def get_world_size():
 
 
 # Utility functions for easier usage
-def is_main_process():
+def is_main_process() -> bool:
     """
     Check if the current process is the main process (global rank 0).
 
