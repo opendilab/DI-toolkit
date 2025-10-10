@@ -21,6 +21,9 @@ jobs:
           - '3.11'
           - '3.12'
           - '3.13'
+        torch-version:
+          - 'none'
+          - '2.8'
 
     steps:
       - name: Get system version for Linux
@@ -77,8 +80,17 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
+      - name: Install dependencies With Torch
         shell: bash
+        if: ${{ env.torch-version != 'none' }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install --upgrade flake8 setuptools wheel twine
+          pip install -r requirements.txt
+          pip install torch -r requirements-test.txt
+      - name: Install dependencies Without Torch
+        shell: bash
+        if: ${{ env.torch-version == 'none' }}
         run: |
           python -m pip install --upgrade pip
           pip install --upgrade flake8 setuptools wheel twine

@@ -2,7 +2,7 @@ from unittest import skipUnless
 
 import pytest
 from hbutils.system import get_free_port
-from hbutils.testing import vpip
+from hbutils.testing import vpip, OS
 
 from ditk.distribution import is_main_process, get_rank, get_world_size, is_distributed
 from .worker_context import DistDataSaver, spawn_worker_context
@@ -53,7 +53,7 @@ class TestDistributionEnv:
         assert get_rank() == 0
         assert is_main_process()
 
-    @skipUnless(vpip('torch'), 'Torch with dist required')
+    @skipUnless(vpip('torch') and not OS.windows, 'Torch with dist required (non-windows only)')
     def test_on_dist_app(self, free_port):
         world_size = 4
         saver = DistDataSaver()
