@@ -4,7 +4,7 @@ import pytest
 from hbutils.system import get_free_port
 from hbutils.testing import vpip, OS
 
-from ditk.distribution import is_main_process, get_rank, get_world_size, is_distributed
+from ditk.distributed import is_main_process, get_rank, get_world_size, is_distributed
 from .worker_context import DistDataSaver, spawn_worker_context
 
 try:

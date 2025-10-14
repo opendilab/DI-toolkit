@@ -1,9 +1,9 @@
-ditk.distribution.env
+ditk.distributed.env
 ==========================================
 
-.. currentmodule:: ditk.distribution.env
+.. currentmodule:: ditk.distributed.env
 
-.. automodule:: ditk.distribution.env
+.. automodule:: ditk.distributed.env
 
 
 is_distributed

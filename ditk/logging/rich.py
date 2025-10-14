@@ -22,7 +22,7 @@ from rich.logging import RichHandler
 
 import ditk
 from .base import _LogLevelType
-from ..distribution import is_distributed, get_rank, get_world_size
+from ..distributed import is_distributed, get_rank, get_world_size
 
 # This value is set due the requirement of displaying the tables
 _DEFAULT_WIDTH = 170

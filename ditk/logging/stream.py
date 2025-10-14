@@ -16,7 +16,7 @@ from typing import Optional
 from rich.markup import render
 
 from .base import _LogLevelType
-from ..distribution import is_distributed, get_rank, get_world_size
+from ..distributed import is_distributed, get_rank, get_world_size
 
 _STREAM_FMT = logging.Formatter(
     fmt='[%(asctime)s][%(filename)s:%(lineno)d][%(levelname)s] %(message)s',
