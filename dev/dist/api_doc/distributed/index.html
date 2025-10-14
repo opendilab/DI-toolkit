@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ditk.distribution &mdash; DI-toolkit 0.2.1 documentation</title>
+  <title>ditk.distributed &mdash; DI-toolkit 0.2.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
@@ -21,7 +21,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ditk.distribution.env" href="env.html" />
+    <link rel="next" title="ditk.distributed.env" href="env.html" />
     <link rel="prev" title="ditk.config.meta" href="../config/meta.html" /> 
 </head>
 
@@ -52,8 +52,8 @@
 <p class="caption" role="heading"><span class="caption-text">API Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../config/index.html">ditk.config</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ditk.distribution</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="env.html">ditk.distribution.env</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ditk.distributed</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="env.html">ditk.distributed.env</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../logging/index.html">ditk.logging</a></li>
@@ -73,9 +73,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">ditk.distribution</li>
+      <li class="breadcrumb-item active">ditk.distributed</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/api_doc/distribution/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api_doc/distributed/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -85,25 +85,25 @@
              
     
     
-  <section id="module-ditk.distribution">
-<span id="ditk-distribution"></span><h1>ditk.distribution<a class="headerlink" href="#module-ditk.distribution" title="Link to this heading"></a></h1>
+  <section id="module-ditk.distributed">
+<span id="ditk-distributed"></span><h1>ditk.distributed<a class="headerlink" href="#module-ditk.distributed" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="env.html">ditk.distribution.env</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="env.html">ditk.distributed.env</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="env.html#is-distributed">is_distributed</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="env.html#ditk.distribution.env.is_distributed"><code class="docutils literal notranslate"><span class="pre">is_distributed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="env.html#ditk.distributed.env.is_distributed"><code class="docutils literal notranslate"><span class="pre">is_distributed()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="env.html#get-rank">get_rank</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="env.html#ditk.distribution.env.get_rank"><code class="docutils literal notranslate"><span class="pre">get_rank()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="env.html#ditk.distributed.env.get_rank"><code class="docutils literal notranslate"><span class="pre">get_rank()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="env.html#get-world-size">get_world_size</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="env.html#ditk.distribution.env.get_world_size"><code class="docutils literal notranslate"><span class="pre">get_world_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="env.html#ditk.distributed.env.get_world_size"><code class="docutils literal notranslate"><span class="pre">get_world_size()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="env.html#is-main-process">is_main_process</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="env.html#ditk.distribution.env.is_main_process"><code class="docutils literal notranslate"><span class="pre">is_main_process()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="env.html#ditk.distributed.env.is_main_process"><code class="docutils literal notranslate"><span class="pre">is_main_process()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -118,7 +118,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../config/meta.html" class="btn btn-neutral float-left" title="ditk.config.meta" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="env.html" class="btn btn-neutral float-right" title="ditk.distribution.env" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="env.html" class="btn btn-neutral float-right" title="ditk.distributed.env" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
